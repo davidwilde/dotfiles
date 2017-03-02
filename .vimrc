@@ -31,8 +31,6 @@ set foldlevelstart=1
 
 command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 syntax enable
-set background=light
-colorscheme solarized
 
 " Show trailing whitespace
 match ErrorMsg '\s\+$'
@@ -49,16 +47,3 @@ let g:netrw_liststyle=3
 map Q <Nop>
 map W <Nop>
 let mapleader = " "
-
-execute pathogen#infect()
-
-set statusline+=%warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:airline_powerline_fonts = 1
