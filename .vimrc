@@ -30,6 +30,7 @@ autocmd BufWritePre *.json :%s/\s\+$//e
 
 call plug#begin()
 Plug 'fatih/vim-go', { 'tag': '*'}
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 let g:ctrlp_match_window = 'top,order:ttb'
