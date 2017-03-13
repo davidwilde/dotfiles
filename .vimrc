@@ -3,17 +3,6 @@ filetype on
 filetype off                  " required
 
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 set number
 
@@ -39,6 +28,10 @@ match ErrorMsg '\s\+$'
 autocmd BufWritePre *.coffee :%s/\s\+$//e
 autocmd BufWritePre *.json :%s/\s\+$//e
 
+call plug#begin()
+Plug 'fatih/vim-go', { 'tag': '*'}
+call plug#end()
+
 let g:ctrlp_match_window = 'top,order:ttb'
 let g:ctrlp_user_command = [ '.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:netrw_liststyle=3
@@ -47,3 +40,4 @@ let g:netrw_liststyle=3
 map Q <Nop>
 map W <Nop>
 let mapleader = " "
+
