@@ -7,3 +7,12 @@
 [submodule "vim/pack/davidwilde/start/vim-jsx"]
 	path = vim/pack/davidwilde/start/vim-jsx
 	url = https://github.com/mxw/vim-jsx
+[submodule "vim/pack/daviwilde/start/vim-styled-components"]
+	path = vim/pack/davidwilde/start/vim-styled-components
+	url = https://github.com/styled-components/vim-styled-components
+[submodule "vim/pack/davidwilde/start/type-script-vim"]
+	path = vim/pack/davidwilde/start/type-script-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "vim/pack/davidwilde/start/tsuquyomi"]
+	path = vim/pack/davidwilde/start/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi
