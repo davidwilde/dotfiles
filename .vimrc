@@ -63,3 +63,9 @@ let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 
 let cole=1
+
+
+if !exists("g:ycm_semantic_triggers")
+ let g:ycm_semantic_triggers = {}
+ endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
