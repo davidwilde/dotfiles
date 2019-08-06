@@ -1,0 +1,4 @@
+{
+  "coc.preferences.formatOnSaveFileTypes": ["js"],
+  "editor.formatOnSave": true
+}

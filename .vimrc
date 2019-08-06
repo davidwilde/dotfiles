@@ -21,13 +21,9 @@ set foldlevelstart=1
 set grepprg=rg\ --vimgrep
 set grepformat^=%f:%l:%c:%m
 
-set winheight=30
-set winminheight=5
-
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
-syntax enable
 
 " Show trailing whitespace
 match ErrorMsg '\s\+$'
@@ -36,36 +32,18 @@ match ErrorMsg '\s\+$'
 autocmd BufWritePre *.coffee :%s/\s\+$//e
 autocmd BufWritePre *.json :%s/\s\+$//e
 
-autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-
 let g:ctrlp_match_window = 'top,order:ttb'
 let g:ctrlp_user_command = [ '.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-let g:ale_sign_error = '⚠️'
-let g:ale_sign_warning = '💩'
-let g:ale_lint_on_enter = 0
 
 map Q <Nop>
 map W <Nop>
 cmap rg<Space> grep<Space>
 let mapleader = " "
 
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
 
-let cole=1
+colorscheme nord
+syntax enable
 
-
-if !exists("g:ycm_semantic_triggers")
- let g:ycm_semantic_triggers = {}
- endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
