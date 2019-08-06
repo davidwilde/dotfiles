@@ -16,9 +16,6 @@
 [submodule "vim/pack/davidwilde/start/tsuquyomi"]
 	path = vim/pack/davidwilde/start/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi
-[submodule "vim/pack/davidwilde/start/YouCompleteMe"]
-	path = vim/pack/davidwilde/start/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
 [submodule "vim/pack/davidwilde/start/nord-vim"]
 	path = vim/pack/davidwilde/start/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim
