@@ -1,4 +1,6 @@
 {
-  "coc.preferences.formatOnSaveFileTypes": ["js"],
-  "editor.formatOnSave": true
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact"
+  ]
 }
