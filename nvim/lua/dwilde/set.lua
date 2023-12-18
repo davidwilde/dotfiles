@@ -17,3 +17,14 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.colorcolumn = "80"
+
+-- Define FileType-specific settings
+vim.api.nvim_exec([[
+  augroup FileTypeSpecific
+    autocmd!
+    autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab smartindent
+    autocmd FileType c setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab smartindent
+    autocmd FileType typescript,javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent
+    " Add more FileType-specific settings as needed
+  augroup END
+]], false)
