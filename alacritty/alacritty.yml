@@ -6,6 +6,7 @@ window:
     y: 30
 
   dynamic_padding: true
+  blur: true
 
   decorations: buttonless
   opacity: 0.95
