@@ -29,3 +29,8 @@ else
     exit 1
 fi
 
+echo "Installing aerospace..."
+brew install --cask nikitabobko/tap/aerospace
+
+brew tap FelixKratz/formulae
+brew install sketchybar
