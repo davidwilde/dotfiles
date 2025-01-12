@@ -8,3 +8,4 @@ if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
 else
     sketchybar --set $NAME background.drawing=off
 fi
+
