@@ -21,7 +21,7 @@ else
     echo "Homebrew is already installed. Skipping installation."
 fi
 
-# Verify installation
+# Verify Homebrew installation
 if command -v brew &>/dev/null; then
     echo "Homebrew is ready to use!"
 else
@@ -29,75 +29,36 @@ else
     exit 1
 fi
 
-echo "Installing ghostty"
-brew install --cask ghostty
+# Check for a Brewfile
+BREWFILE_PATH="$(pwd)/Brewfile"
 
-
-echo "Installing aerospace..."
-brew install --cask nikitabobko/tap/aerospace
-
-echo "Installing Sketchybar"
-brew tap FelixKratz/formulae
-brew install sketchybar
-
-#!/bin/bash
-
-# Check if Homebrew is installed
-if ! command -v brew &>/dev/null; then
-    echo "Homebrew is not installed. Installing Homebrew..."
-    
-    # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    if [[ $? -eq 0 ]]; then
-        echo "Homebrew installed successfully."
-        
-        # Add Homebrew to PATH if necessary
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-        echo "Failed to install Homebrew. Please check your internet connection and try again."
-        exit 1
-    fi
+if [[ -f "$BREWFILE_PATH" ]]; then
+    echo "Brewfile found. Running 'brew bundle'..."
+    brew bundle --file="$BREWFILE_PATH"
 else
-    echo "Homebrew is already installed. Skipping installation."
-fi
-
-# Verify installation
-if command -v brew &>/dev/null; then
-    echo "Homebrew is ready to use!"
-else
-    echo "Something went wrong. Homebrew is not working as expected."
+    echo "Brewfile not found. Please ensure it's in the current directory."
     exit 1
 fi
 
-echo "Installing ghostty"
-brew install --cask ghostty
+# Additional setup for tmux plugins
 
-
-echo "Installing aerospace..."
-brew install --cask nikitabobko/tap/aerospace
-
-echo "Installing Sketchybar"
-brew tap FelixKratz/formulae
-brew install sketchybar
-brew install borders
-
-brew install --cask font-hack-nerd-font
-
+# Clone tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  echo "Cloning tmux plugin manager..."
-  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+    echo "Cloning tmux plugin manager..."
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 else
-  echo "tmux plugin manager is already installed."
+    echo "tmux plugin manager is already installed."
 fi
 
-# Create catppuccin directory if it doesn't exist
+# Clone Catppuccin theme for tmux
 CATPPUCCIN_DIR="$HOME/.config/tmux/plugins/catppuccin/tmux"
 if [ ! -d "$CATPPUCCIN_DIR" ]; then
-  echo "Cloning catppuccin tmux theme..."
-  mkdir -p "$(dirname "$CATPPUCCIN_DIR")"
-  git clone -b v2.1.2 https://github.com/catppuccin/tmux.git "$CATPPUCCIN_DIR"
+    echo "Cloning catppuccin tmux theme..."
+    mkdir -p "$(dirname "$CATPPUCCIN_DIR")"
+    git clone -b v2.1.2 https://github.com/catppuccin/tmux.git "$CATPPUCCIN_DIR"
 else
-  echo "Catppuccin tmux theme is already installed."
+    echo "Catppuccin tmux theme is already installed."
 fi
+
+echo "Installation complete!"
+
