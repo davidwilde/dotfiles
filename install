@@ -84,3 +84,20 @@ brew install sketchybar
 brew install borders
 
 brew install --cask font-hack-nerd-font
+
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  echo "Cloning tmux plugin manager..."
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+else
+  echo "tmux plugin manager is already installed."
+fi
+
+# Create catppuccin directory if it doesn't exist
+CATPPUCCIN_DIR="$HOME/.config/tmux/plugins/catppuccin/tmux"
+if [ ! -d "$CATPPUCCIN_DIR" ]; then
+  echo "Cloning catppuccin tmux theme..."
+  mkdir -p "$(dirname "$CATPPUCCIN_DIR")"
+  git clone -b v2.1.2 https://github.com/catppuccin/tmux.git "$CATPPUCCIN_DIR"
+else
+  echo "Catppuccin tmux theme is already installed."
+fi

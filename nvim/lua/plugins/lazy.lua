@@ -241,7 +241,19 @@ require('lazy').setup({
 
   'ray-x/go.nvim',
   'ray-x/guihua.lua',
-  { "catppuccin/nvim", as = "catppuccin" },
+  {
+  "catppuccin/nvim",
+  as = "catppuccin",
+  config = function()
+    require("catppuccin").setup({
+      transparent_background = true,
+      integrations = {
+        -- Add any integrations you are using, e.g., treesitter, lualine, etc.
+      },
+    })
+    vim.cmd.colorscheme("catppuccin")
+  end,
+},
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
