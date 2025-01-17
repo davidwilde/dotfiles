@@ -1,2 +1,5 @@
+.DS_Store
+tmux/plugins/
+raycast
 nvim/plugin/packer_compiled.lua
 gh/hosts.yml
