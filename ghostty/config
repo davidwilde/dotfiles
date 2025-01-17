@@ -1,0 +1,6 @@
+theme = dark:tokyonight,light:tokyonight-day 
+keybind = global:cmd+/=toggle_quick_terminal
+background-opacity = 0.9
+background-blur-radius = 50
+macos-titlebar-style = hidden 
+
