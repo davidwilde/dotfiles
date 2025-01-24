@@ -11,3 +11,4 @@ cask "jandedobbeleer/oh-my-posh/oh-my-posh"
 # Formulae
 brew "sketchybar"
 brew "borders"
+brew "stow"
