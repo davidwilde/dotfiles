@@ -32,6 +32,11 @@ fi
 # Check for a Brewfile
 BREWFILE_PATH="$(pwd)/Brewfile"
 
+stow .
+
+# Stow zshrc in ~
+stow --target=~ zsh
+
 if [[ -f "$BREWFILE_PATH" ]]; then
     echo "Brewfile found. Running 'brew bundle'..."
     brew bundle --file="$BREWFILE_PATH"
@@ -59,6 +64,7 @@ if [ ! -d "$CATPPUCCIN_DIR" ]; then
 else
     echo "Catppuccin tmux theme is already installed."
 fi
+
 
 echo "Installation complete!"
 
