@@ -11,6 +11,9 @@ vim.o.mouse = ''
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Add a cursor line
+vim.o.cursorline = true
+
 -- Save undo history
 vim.o.undofile = true
 
